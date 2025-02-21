@@ -5,18 +5,15 @@ import requests
 from bs4 import BeautifulSoup
 import yt_dlp
 
-# Определяем путь к рабочему столу в зависимости от операционной системы
 if platform.system() == 'Windows':
     desktop_path = os.path.join(os.environ['USERPROFILE'], 'Desktop')
-elif platform.system() == 'Darwin':  # macOS
+elif platform.system() == 'Darwin':  
     desktop_path = os.path.join(os.environ['HOME'], 'Desktop')
-else:  # Linux и другие Unix-подобные системы
+else:  
     desktop_path = os.path.join(os.environ['HOME'], 'Рабочий стол')
 
-# Путь к папке для сохранения видео
 SAVE_PATH = os.path.join(desktop_path, 'saves')
 
-# Создаём папку 'saves', если она не существует
 os.makedirs(SAVE_PATH, exist_ok=True)
 
 def progress_hook(d):
